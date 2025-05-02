@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  web_app1:
+    build:
+      context: ./web_app1
+    volumes:
+      - ./web_app1:/app
+    ports:
+      - "5002:5000"
+    environment:
+      - FLASK_APP=frontend.py
+      - FLASK_ENV=development
+
+  web_app2:
+    build:
+      context: ./web_app2
+    volumes:
+      - ./web_app2:/app
+    ports:
+      - "5001:5000"
+    environment:
+      - FLASK_APP=frontend.py
+      - FLASK_ENV=development

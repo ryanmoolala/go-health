@@ -1,0 +1,118 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.endpoint-tester {
+    margin-top: 30px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"], textarea {
+    width: calc(100% - 12px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+textarea {
+    min-height: 100px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.get-button {
+    background-color: #28a745;
+}
+
+.post-button {
+    background-color: #007bff;
+}
+
+.put-button {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.delete-button {
+    background-color: #dc3545;
+}
+
+.button:hover {
+    opacity: 0.9;
+}
+
+.response-area {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #e9ecef;
+}
+
+.response-area h2 {
+    margin-top: 0;
+    color: #007bff;
+    text-align: left;
+}
+
+#response-output {
+    white-space: pre-wrap;
+    font-family: monospace;
+    font-size: 14px;
+    color: #222;
+    margin: 0;
+}

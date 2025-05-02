@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Health Endpoint Tester</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mock Health Endpoint Tester</h1>
+        <p>This is a mock frontend web application designed for testing health endpoints.</p>
+
+        <div class="endpoint-tester">
+            <h2>Test Endpoint</h2>
+            <div class="input-group">
+                <label for="endpoint-url">Endpoint URL:</label>
+                <input type="text" id="endpoint-url" placeholder="e.g., /health or /status">
+            </div>
+
+            <div class="button-group">
+                <button class="button get-button">GET</button>
+                <button class="button post-button">POST</button>
+                <button class="button put-button">PUT</button>
+                <button class="button delete-button">DELETE</button>
+            </div>
+
+            <div class="request-body">
+                <label for="request-data">Request Body (JSON):</label>
+                <textarea id="request-data" placeholder='{"key": "value"}'></textarea>
+            </div>
+
+            <div class="response-area">
+                <h2>Response</h2>
+                <pre id="response-output">
+                    </pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mock JavaScript functionality (not actually making API calls)
+        document.addEventListener('DOMContentLoaded', () => {
+            const endpointUrlInput = document.getElementById('endpoint-url');
+            const requestDataInput = document.getElementById('request-data');
+            const responseOutput = document.getElementById('response-output');
+            const buttons = document.querySelectorAll('.button-group button');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const method = event.target.textContent;
+                    const url = endpointUrlInput.value;
+                    const requestBody = requestDataInput.value;
+
+                    let mockResponse = '';
+                    if (url) {
+                        mockResponse += `<strong>Request Method:</strong> ${method}<br>`;
+                        mockResponse += `<strong>Endpoint URL:</strong> ${url}<br>`;
+                        if (method!== 'GET' && requestBody) {
+                            try {
+                                const parsedBody = JSON.parse(requestBody);
+                                mockResponse += `<strong>Request Body:</strong><br>${JSON.stringify(parsedBody, null, 2)}<br>`;
+                            } catch (error) {
+                                mockResponse += `<strong>Error parsing JSON:</strong> ${error.message}<br>`;
+                            }
+                        }
+                        mockResponse += `<br><strong>Mock Response:</strong><br>`;
+                        mockResponse += `{<br>  "status": "success",<br>  "method": "${method}",<br>  "url": "${url}"<br>}`;
+                    } else {
+                        mockResponse = 'Please enter an endpoint URL.';
+                    }
+
+                    responseOutput.innerHTML = mockResponse;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
